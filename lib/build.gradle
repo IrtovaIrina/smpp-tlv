@@ -76,7 +76,7 @@ signing {
 }
 repositories {
     maven {
-        url "https://maven.pkg.github.com/IrtovaIrina/bankiru-smpp-tlv"
+        url "https://github.com/IrtovaIrina/bankiru-smpp-tlv"
     }
 }
 //task buildArtifact(type: Jar) {

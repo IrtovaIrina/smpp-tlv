@@ -63,7 +63,7 @@ task sourceJar(type: Jar) {
 repositories {
     maven {
         name = "GitHubPackages"
-        url = uri("https://github.com/IrtovaIrina/bankiru-smpp-tlv")
+        url = uri("https://github.com/IrtovaIrina/smpp-tlv")
         credentials {
             username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
             password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
@@ -76,7 +76,7 @@ signing {
 }
 repositories {
     maven {
-        url "https://github.com/IrtovaIrina/bankiru-smpp-tlv"
+        url "https://github.com/IrtovaIrina/smpp-tlv"
     }
 }
 //task buildArtifact(type: Jar) {

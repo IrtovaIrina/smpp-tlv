@@ -63,8 +63,7 @@ task sourceJar(type: Jar) {
 repositories {
     maven {
         name = "GitHubPackages"
-
-        url = uri("https://maven.pkg.github.com/IrtovaIrina/bankiru-smpp-tlv")
+        url = uri("https://github.com/IrtovaIrina/bankiru-smpp-tlv")
         credentials {
             username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
             password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")

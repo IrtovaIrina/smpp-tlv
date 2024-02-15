@@ -93,9 +93,9 @@ repositories {
 publishing {
     publications {
         maven(MavenPublication) {
-            groupId = 'ru.banki'
-            artifactId = 'smpp-tlv'
-            version = '1.0.0'
+            groupId = 'ru.banki' as Publication
+            artifactId = 'smpp-tlv' as Publication
+            version = '1.0.0' as Publication
 
             from components.java
         }

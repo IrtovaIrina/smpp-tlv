@@ -4,12 +4,13 @@ plugins {
     id 'java'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'org.springframework.boot' version '3.2.2'
+    id 'application'
 }
 jar {
     enabled = true
 }
-group = 'ru.banki'
-version = '1.0-SNAPSHOT'
+group = "ru.banki"
+version "1.4.0"
 
 sourceCompatibility = '1.8'
 
@@ -18,6 +19,11 @@ sourceCompatibility = '1.8'
 repositories {
     mavenCentral()
 }
+
+apply plugin: "java-library"
+apply plugin: "maven-publish"
+apply plugin: "signing"
+
 dependencyManagement {
     dependencies {
         imports {
@@ -41,6 +47,14 @@ dependencies {
 
 
 }
+//artifacts {
+//    archives sourceJar
+//    archives javadocJar
+//}
+
+signing {
+    sign configurations.archives
+}
 task sourceJar(type: Jar) {
     archiveClassifier.set('sources')
     from sourceSets.main.allSource
@@ -55,5 +69,14 @@ repositories {
             username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
             password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
         }
+    }
+}
+
+signing {
+    sign configurations.archives
+}
+repositories {
+    maven {
+        url "https://maven.pkg.github.com/IrtovaIrina/bankiru-smpp-tlv"
     }
 }

@@ -10,7 +10,7 @@ jar {
     enabled = true
 }
 group = "ru.banki"
-version "1.4.0"
+version "1.0"
 
 sourceCompatibility = '1.8'
 
@@ -79,4 +79,26 @@ repositories {
     maven {
         url "https://maven.pkg.github.com/IrtovaIrina/bankiru-smpp-tlv"
     }
+}
+//task buildArtifact(type: Jar) {
+//    // Конфигурирует мета-информацию для артефакта
+//    manifest {
+//        attributes 'Implementation-Title': 'My Application',
+//                'Implementation-Version': version,
+//                'Main-Class': 'com.example.MyApplication'
+//    }
+//
+//    // Конфигурирует содержимое для артефакта
+//    from sourceSets.main.output
+//}
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'ru.banki'
+            artifactId = 'smpp-tlv'
+            version = '1.0.0'
+
+            from components.java
+        }
+   }
 }
